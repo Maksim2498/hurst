@@ -1,0 +1,23 @@
+#ifndef HURST_CONFIG_H
+#define HURST_CONFIG_H
+
+#include <hurst/util/macros.h>
+
+#define VERSION_MAJOR @PROJECT_VERSION_MAJOR@
+#define VERSION_MINOR @PROJECT_VERSION_MINOR@
+#define VERSION_PATCH @PROJECT_VERSION_PATCH@
+
+#define VERSION STRINGIFY_MACRO(VERSION_MAJOR) \
+                "."                            \
+                STRINGIFY_MACRO(VERSION_MINOR) \
+                "."                            \
+                STRINGIFY_MACRO(VERSION_PATCH)
+
+
+#define OS_ID_LINUX @OS_ID_LINUX@
+#define OS_ID_MAC   @OS_ID_MAC@
+#define OS_ID_WIN   @OS_ID_WIN@
+
+#define OS_ID       @OS_ID@
+
+#endif

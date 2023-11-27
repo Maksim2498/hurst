@@ -1,0 +1,12 @@
+# Test Data
+/data/
+
+# VSCode
+/.vscode/
+/.VSCodeCounter/
+
+# Build
+/target/
+
+# Mac OS
+.DS_Store
