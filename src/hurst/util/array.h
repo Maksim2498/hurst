@@ -8,6 +8,7 @@
 bool allNotNull(const void* const* array, size_t len);
 
 double evalStd(const double* array, size_t len);
+double evalDisp(const double* array, size_t len);
 double evalAvg(const double* array, size_t len);
 double evalSum(const double* array, size_t len);
 

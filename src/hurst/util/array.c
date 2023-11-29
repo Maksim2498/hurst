@@ -15,6 +15,10 @@ bool allNotNull(const void* const* array, size_t len) {
 }
 
 double evalStd(const double* array, size_t len) {
+    return sqrt(evalDisp(array, len));
+}
+
+double evalDisp(const double* array, size_t len) {
     const double avg = evalAvg(array, len);
 
     double sum = 0;
@@ -25,7 +29,7 @@ double evalStd(const double* array, size_t len) {
         sum += diff * diff;
     }
 
-    return sqrt(sum / len);
+    return sum / len;
 }
 
 double evalAvg(const double* array, size_t len) {
