@@ -14,12 +14,48 @@ bool allNotNull(const void* const* array, size_t len) {
     return true;
 }
 
-double evalStd(const double* array, size_t len) {
-    return sqrt(evalDisp(array, len));
+void applyToDArray(double* array, size_t len, ApplyD apply) {
+    assert(array && apply);
+
+    for (double *it = array, *end = array + len; it < end; ++it)
+        *it = apply(*it);
 }
 
-double evalDisp(const double* array, size_t len) {
-    const double avg = evalAvg(array, len);
+struct Line evalDArrayLinReg(double* x, double* y, size_t len) {
+    const double xSum      = evalDArraySum(x, len);
+    const double ySum      = evalDArraySum(y, len);
+    const double xyProdSum = evalDArraysProdSum(x, y, len);
+    const double xProdSum  = evalDArraysProdSum(x, x, len);
+
+    const double offset    = (len * xyProdSum - xSum * ySum)
+                             /
+                             (len * xProdSum - xSum * xSum);
+
+    const double slope     = (ySum - offset * xSum) / len;
+
+    return (struct Line) {
+        .offset = offset,
+        .slope  = slope,
+    };
+}
+
+double evalDArraysProdSum(const double* lhs, const double* rhs, size_t len) {
+    assert(lhs && rhs);
+
+    double sum = 0;
+
+    for (size_t i = 0; i < len; ++i)
+        sum += lhs[i] * rhs[i];
+
+    return sum;
+}
+
+double evalDArrayStd(const double* array, size_t len) {
+    return sqrt(evalDArrayDisp(array, len));
+}
+
+double evalDArrayDisp(const double* array, size_t len) {
+    const double avg = evalDArrayAvg(array, len);
 
     double sum = 0;
 
@@ -32,11 +68,11 @@ double evalDisp(const double* array, size_t len) {
     return sum / len;
 }
 
-double evalAvg(const double* array, size_t len) {
-    return evalSum(array, len) / len;
+double evalDArrayAvg(const double* array, size_t len) {
+    return evalDArraySum(array, len) / len;
 }
 
-double evalSum(const double* array, size_t len) {
+double evalDArraySum(const double* array, size_t len) {
     assert(array);
 
     if (!len)
