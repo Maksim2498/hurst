@@ -27,11 +27,11 @@ struct Line evalDArrayLinReg(double* x, double* y, size_t len) {
     const double xyProdSum = evalDArraysProdSum(x, y, len);
     const double xProdSum  = evalDArraysProdSum(x, x, len);
 
-    const double offset    = (len * xyProdSum - xSum * ySum)
+    const double slope     = (len * xyProdSum - xSum * ySum)
                              /
                              (len * xProdSum - xSum * xSum);
 
-    const double slope     = (ySum - offset * xSum) / len;
+    const double offset    = (ySum - slope * xSum) / len;
 
     return (struct Line) {
         .offset = offset,
