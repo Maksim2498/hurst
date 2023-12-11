@@ -34,3 +34,17 @@ void memAllocError_(void) {
     fputs("Not enough memory\n", stderr);
     exit(EXIT_FAILURE);
 }
+
+void swapMem(void* lhs, void* rhs, size_t size) {
+    assert(lhs && rhs);
+
+    char* lhsChars = lhs;
+    char* rhsChars = rhs;
+
+    for (size_t i = 0; i < size; ++i) {
+        const char tmp = lhsChars[i];
+
+        lhsChars[i] = rhsChars[i];
+        rhsChars[i] = tmp;
+    }
+}
