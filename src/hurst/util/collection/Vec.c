@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <string.h>
 
+#include <hurst/util/macros.h>
 #include <hurst/util/mem.h>
 
 void Vec_grow_(Vec* vec);
@@ -11,10 +12,18 @@ void Vec_init(Vec* vec, size_t itemSize) {
     Vec_initWithCap(vec, itemSize, VEC_DEFAULT_INIT_CAP);
 }
 
-void Vec_initWithCap(Vec* vec, size_t itemSize, size_t cap) {
-    assert(vec);
+void Vec_initWithLen(Vec* vec, size_t itemSize, size_t len) {
+    Vec_initWithLenAndCap(vec, itemSize, len, MAX(len, VEC_DEFAULT_INIT_CAP));
+}
 
-    vec->len      = 0;
+void Vec_initWithCap(Vec* vec, size_t itemSize, size_t cap) {
+    Vec_initWithLenAndCap(vec, itemSize, 0, cap);
+}
+
+void Vec_initWithLenAndCap(Vec* vec, size_t itemSize, size_t len, size_t cap) {
+    assert(vec && len <= cap);
+
+    vec->len      = len;
     vec->cap      = cap;
     vec->itemSize = itemSize;
     vec->items    = forceAllocMem(cap * itemSize);
