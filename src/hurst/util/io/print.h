@@ -12,7 +12,7 @@
 #include <hurst/util/fmt/output/IntOFmt.h>
 #include <hurst/util/time/Timestamp.h>
 
-typedef size_t (*Print)(FILE*, const void*);
+#include "cb.h"
 
 size_t printArray(
     FILE*       file,

@@ -29,17 +29,9 @@ add_executable(
     src/hurst/util/collection/all.h
     src/hurst/util/collection/array.h
     src/hurst/util/collection/array.c
+    src/hurst/util/collection/cb.h
     src/hurst/util/collection/Vec.h
     src/hurst/util/collection/Vec.c
-
-    src/hurst/util/all.h
-    src/hurst/util/macros.h
-    src/hurst/util/mem.h
-    src/hurst/util/mem.c
-    src/hurst/util/path.h
-    src/hurst/util/path.c
-    src/hurst/util/str.h
-    src/hurst/util/str.c
 
     src/hurst/util/fmt/input/all.h
     src/hurst/util/fmt/input/FloatIFmt.h
@@ -84,6 +76,7 @@ add_executable(
     src/hurst/util/fmt/Radix.c
 
     src/hurst/util/io/all.h
+    src/hurst/util/io/cb.h
     src/hurst/util/io/CSVReader.h
     src/hurst/util/io/CSVReader.c
     src/hurst/util/io/print.h
@@ -107,6 +100,15 @@ add_executable(
     src/hurst/util/time/Timestamp.c
     src/hurst/util/time/Year.h
     src/hurst/util/time/Year.c
+
+    src/hurst/util/all.h
+    src/hurst/util/macros.h
+    src/hurst/util/mem.h
+    src/hurst/util/mem.c
+    src/hurst/util/path.h
+    src/hurst/util/path.c
+    src/hurst/util/str.h
+    src/hurst/util/str.c
 
     src/hurst/all.h
 

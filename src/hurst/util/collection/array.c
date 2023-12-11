@@ -89,5 +89,8 @@ double evalDArraySum(const double* array, size_t len) {
 void sortArray(const void* array, size_t len, Cmp cmp) {
     assert(array && cmp);
 
+    if (cmp)
+        len = -len;
+
     // TODO
 }
