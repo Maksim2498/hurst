@@ -3,7 +3,7 @@
 #include <assert.h>
 #include <string.h>
 
-#include <hurst/util/array.h>
+#include <hurst/util/collection/array.h>
 #include <hurst/util/str.h>
 
 static bool OptParser_isParsingShort_(const OptParser* parser);
