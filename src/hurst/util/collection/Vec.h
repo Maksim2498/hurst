@@ -28,6 +28,7 @@ size_t Vec_getAllocedSize(const Vec* vec);
 size_t Vec_getSize(const Vec* vec);
 bool Vec_isEmpty(const Vec* vec);
 size_t Vec_getLen(const Vec* vec);
+void Vec_setLen(Vec* vec, size_t len);
 size_t Vec_getCap(const Vec* vec);
 size_t Vec_getItemSize(const Vec* vec);
 void* Vec_getItems(Vec* vec);

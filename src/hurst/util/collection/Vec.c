@@ -50,6 +50,11 @@ size_t Vec_getLen(const Vec* vec) {
     return vec->len;
 }
 
+void Vec_setLen(Vec* vec, size_t len) {
+    assert(len <= Vec_getCap(vec));
+    vec->len = len;
+}
+
 size_t Vec_getCap(const Vec* vec) {
     assert(Vec_isValid(vec));
     return vec->cap;
