@@ -1,10 +1,12 @@
 #include "App.h"
 
 #include <assert.h>
+#include <math.h>
 
 #include <hurst/util/collection/Vec.h>
 #include <hurst/util/io/print.h>
 #include <hurst/util/opt/Opt.h>
+#include <hurst/util/array.h>
 #include <hurst/util/path.h>
 #include <hurst/util/str.h>
 #include <hurst/config.h>
@@ -237,9 +239,48 @@ void App_printFileHurstExp_(const App* app, MeasureReader* measureReader, size_t
 double App_evalHurstExp_(const App* app, Vec* measures) {
     assert(App_isValid(app) && Vec_isValid(measures));
 
-    // TODO
+    const size_t measuresLen = Vec_getLen(measures);
+    const size_t maxIncLen   = app->config.maxIncLen;
+    const size_t incLen      = measuresLen >= maxIncLen
+                             ? maxIncLen
+                             : measuresLen;
+    const size_t dxLen       = measuresLen - incLen;
 
-    return 0;
+    Vec dx;
+    Vec xi;
+    Vec eta;
+
+    const double ZERO = 0;
+
+    Vec_initFilled(&dx,  sizeof(double), &ZERO, dxLen );
+    Vec_initFilled(&xi,  sizeof(double), &ZERO, incLen);
+    Vec_initFilled(&eta, sizeof(double), &ZERO, incLen);
+
+    for (size_t p = 0; p < incLen; ++p) {
+        for (size_t i = 0; i < dxLen; ++i) {
+            const struct Measure* measure    = Vec_getCAt(measures, i        );
+            const struct Measure* incMeasure = Vec_getCAt(measures, i + p + 1);
+            const double          curDx      = incMeasure->value - measure->value;
+
+            Vec_setAt(&dx, &curDx, i);
+        }
+
+        const double* dxItems = Vec_getCItems(&dx);
+        const double  std     = evalDArrayStd(dxItems, dxLen);
+        const double  curEta  = log(std);
+        const double  curXi   = log(p + 1);
+
+        Vec_setAt(&eta, &curEta, p);
+        Vec_setAt(&xi,  &curXi,  p);
+    }
+
+    struct Line line = evalDArrayLinReg(
+        Vec_getCItems(&xi ),
+        Vec_getCItems(&eta),
+        incLen
+    );
+
+    return line.slope;
 }
 
 const struct AppConfig* App_getCConfig(const App* app) {
