@@ -23,6 +23,7 @@ struct AppConfig {
     bool               showDateFmtHelp;
     bool               showVersion;
     bool               showConfig;
+    bool               sort;
 };
 
 extern const struct AppConfig APP_CONFIG_DEFAULT;

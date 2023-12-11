@@ -22,6 +22,7 @@ const struct AppConfig APP_CONFIG_DEFAULT = {
     .showDateFmtHelp = false,
     .showVersion     = false,
     .showConfig      = false,
+    .sort            = false,
 };
 
 size_t printAppConfig(FILE* file, const struct AppConfig* config) {
@@ -43,7 +44,8 @@ size_t printAppConfig(FILE* file, const struct AppConfig* config) {
         "Show Help:                %b\n"
         "Show Date Format Help:    %b\n"
         "Show Version:             %b\n"
-        "Show Config:              %b\n",
+        "Show Config:              %b\n"
+        "Sort:                     %b\n",
 
         config->filenameCount, config->filenames,
         config->dateFmt,
@@ -58,7 +60,8 @@ size_t printAppConfig(FILE* file, const struct AppConfig* config) {
         config->showHelp,
         config->showDateFmtHelp,
         config->showVersion,
-        config->showConfig
+        config->showConfig,
+        config->sort
     );
 }
 

@@ -26,7 +26,7 @@ static size_t App_printMissingFiles_(const App* app);
 
 static void App_printAllFilesHurstExps_(const App* app);
 static void App_printFileHurstExp_(const App* app, MeasureReader* measureReader, size_t filenameIndex);
-static double App_evalHurstExp_(const App* app, Vec* measures);
+static double App_evalHurstExp_(const App* app, const Vec* measures);
 
 
 void App_init(App* app) {
@@ -228,6 +228,9 @@ void App_printFileHurstExp_(const App* app, MeasureReader* measureReader, size_t
     Vec measures = MeasureReader_readAll(measureReader);
 
     if (!MeasureReader_getError(measureReader) && app->outFile) {
+        if (app->config.sort)
+            Vec_sort(&measures, (Cmp) Measure_cmpByDate);
+
         const double hurstExp = App_evalHurstExp_(app, &measures);
 
         printFmt(app->outFile, "%d - %s\n", hurstExp, filename);
@@ -236,7 +239,7 @@ void App_printFileHurstExp_(const App* app, MeasureReader* measureReader, size_t
     Vec_deinit(&measures);
 }
 
-double App_evalHurstExp_(const App* app, Vec* measures) {
+double App_evalHurstExp_(const App* app, const Vec* measures) {
     assert(App_isValid(app) && Vec_isValid(measures));
 
     const size_t measuresLen = Vec_getLen(measures);

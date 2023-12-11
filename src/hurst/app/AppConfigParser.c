@@ -68,6 +68,7 @@ enum OptId_ {
     OPT_ID_MAX_INC_LEN,
     OPT_ID_NO_DATE,
     OPT_ID_IGNORE_BAD,
+    OPT_ID_SORT,
 };
 
 const struct Opt APP_CONFIG_PARSER_OPTS[] = {
@@ -144,6 +145,12 @@ const struct Opt APP_CONFIG_PARSER_OPTS[] = {
     [OPT_ID_IGNORE_BAD] = {
         .longName    = "ignore-bad",
         .description = "Enables ignoring of bad values and dates",
+    },
+
+    [OPT_ID_SORT] = {
+        .longName    = "sort",
+        .shortName   = 'S',
+        .description = "Enables records sorting by date (in ascending order)",
     },
 };
 
@@ -325,6 +332,10 @@ struct ParsedAppConfig AppConfigParser_parse(AppConfigParser* parser) {
 
                     case OPT_ID_IGNORE_BAD:
                         config.ignoreBad = true;
+                        break;
+
+                    case OPT_ID_SORT:
+                        config.sort = true;
                         break;
 
                     default:
