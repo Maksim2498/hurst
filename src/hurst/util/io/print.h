@@ -68,24 +68,37 @@ size_t printArrayFmt(
 
     Every element inside braces can be omitted.
 
-    +------------+--------------------+
-    | Conversion | Argument           |
-    | Specifier  | Type               |
-    +------------+--------------------+
-    | b          | bool               |
-    | c          | char               |
-    | s          | string             |
-    | i          | int                |
-    | ui?        | unsigned           |
-    | li?        | long               |
-    | uli?       | unsinged long      |
-    | lli?       | long long          |
-    | ulli?      | unsinged long long |
-    | d          | ptrdiff_t          |
-    | z          | size_t             |
-    | m          | intmax_t           |
-    | um         | uintmax_t          |
-    +------------+--------------------+
+    +------------+-----------------------------------------------+
+    | Conversion | Argument Type                                 |
+    | Specifier  |                                               |
+    +------------+-----------------------------------------------+
+    | b          | bool                                          |
+    | "c         | enclosed in double quotes escaped char        |
+    | 'c         | enclosed in quotes escaped char               |
+    | ec         | escaped char                                  |
+    | c          | char                                          |
+    | "s         | enclosed in double quotes escaped const char* |
+    | 's         | enclosed in quotes const escaped char*        |
+    | es         | escaped const char*                           |
+    | s          | const char*                                   |
+    | sc         | signed char                                   |
+    | uc         | unsigned char                                 |
+    | Si         | short                                         |
+    | uSi        | unsigned short                                |
+    | i          | int                                           |
+    | ui?        | unsigned                                      |
+    | li?        | long                                          |
+    | uli?       | unsinged long                                 |
+    | lli?       | long long                                     |
+    | ulli?      | unsinged long long                            |
+    | p          | ptrdiff_t                                     |
+    | z          | size_t                                        |
+    | f          | float                                         |
+    | d          | double                                        |
+    | m          | intmax_t                                      |
+    | um         | uintmax_t                                     |
+    | t          | Timestamp                                     |
+    +------------+-----------------------------------------------+
 */
 
 size_t printFmt(FILE* file, const char* fmt, ...);
