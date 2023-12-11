@@ -6,7 +6,7 @@
 #include <hurst/util/macros.h>
 #include <hurst/util/mem.h>
 
-void Vec_grow_(Vec* vec);
+static void Vec_grow_(Vec* vec);
 
 void Vec_init(Vec* vec, size_t itemSize) {
     Vec_initWithCap(vec, itemSize, VEC_DEFAULT_INIT_CAP);
@@ -308,7 +308,11 @@ void Vec_shrinkToFit(Vec* vec) {
 
 void Vec_sort(Vec* vec, Cmp cmp) {
     assert(Vec_isValid(vec) && cmp);
-    // TODO
+
+    if (2 * vec->len > vec->cap)
+        Vec_grow_(vec);
+
+    sortArray(vec->items, vec->len, cmp);
 }
 
 void Vec_grow_(Vec* vec) {

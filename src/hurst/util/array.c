@@ -85,3 +85,9 @@ double evalDArraySum(const double* array, size_t len) {
 
     return sum;
 }
+
+void sortArray(const void* array, size_t len, Cmp cmp) {
+    assert(array && cmp);
+
+    // TODO
+}

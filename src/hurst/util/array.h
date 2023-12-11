@@ -24,4 +24,8 @@ double evalDArrayDisp(const double* array, size_t len);
 double evalDArrayAvg(const double* array, size_t len);
 double evalDArraySum(const double* array, size_t len);
 
+typedef int (*Cmp)(const void*, const void*);
+
+void sortArray(const void* array, size_t len, Cmp cmp);
+
 #endif

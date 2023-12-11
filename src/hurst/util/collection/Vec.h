@@ -7,6 +7,7 @@
 
 #include <hurst/util/fmt/output/ArrayOFmt.h>
 #include <hurst/util/io/print.h>
+#include <hurst/util/array.h>
 
 enum {
     VEC_DEFAULT_INIT_CAP = 8,
@@ -63,8 +64,6 @@ bool Vec_remove(Vec* vec, size_t at);
 size_t Vec_removeN(Vec* vec, size_t at, size_t n);
 void Vec_clean(Vec* vec);
 void Vec_shrinkToFit(Vec* vec);
-
-typedef int (*Cmp)(const void*, const void*);
 
 void Vec_sort(Vec* vec, Cmp cmp);
 
