@@ -86,8 +86,8 @@ double evalDArraySum(const double* array, size_t len) {
     return sum;
 }
 
-void sortArray(const void* array, size_t len, Cmp cmp) {
-    assert(array && cmp);
+void sortArray(void* array, void* buffer, size_t len, size_t itemSize, Cmp cmp) {
+    assert(array && buffer && itemSize && cmp);
 
     if (cmp)
         len = -len;

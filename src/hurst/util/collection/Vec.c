@@ -315,7 +315,13 @@ void Vec_sort(Vec* vec, Cmp cmp) {
     if (2 * vec->len > vec->cap)
         Vec_grow_(vec);
 
-    sortArray(vec->items, vec->len, cmp);
+    sortArray(
+        vec->items,
+        vec->items + vec->len * vec->itemSize,
+        vec->len,
+        vec->itemSize,
+        cmp
+    );
 }
 
 void Vec_grow_(Vec* vec) {
