@@ -36,15 +36,15 @@ struct MeasureReaderConfig MeasureReaderConfig_FromAppConfig(const struct AppCon
 
     struct MeasureReaderConfig config = MEASURE_READER_CONFIG_DEFAULT;
 
-    config.dateFmt    = config.dateFmt;
-    config.dateFmtLen = evalStrLen(config.dateFmt);
-    config.dateCol    = config.dateCol;
-    config.valueCol   = config.valueCol;
-    config.fromDate   = config.fromDate;
-    config.untilDate  = config.untilDate;
-    config.colSep     = config.colSep;
-    config.ignoreDate = config.ignoreDate;
-    config.ignoreBad  = config.ignoreBad;
+    config.dateFmt    = appConfig->dateFmt;
+    config.dateFmtLen = evalStrLen(appConfig->dateFmt);
+    config.dateCol    = appConfig->dateCol;
+    config.valueCol   = appConfig->valueCol;
+    config.fromDate   = appConfig->fromDate;
+    config.untilDate  = appConfig->untilDate;
+    config.colSep     = appConfig->colSep;
+    config.ignoreDate = appConfig->ignoreDate;
+    config.ignoreBad  = appConfig->ignoreBad;
 
     return config;
 }
