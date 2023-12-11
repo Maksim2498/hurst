@@ -1,5 +1,5 @@
-#ifndef HURST_UTIL_ARRAY_H
-#define HURST_UTIL_ARRAY_H
+#ifndef HURST_UTIL_COLLECTION_ARRAY_H
+#define HURST_UTIL_COLLECTION_ARRAY_H
 
 #include <stddef.h>
 #include <stdbool.h>

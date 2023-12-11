@@ -2,9 +2,9 @@
 
 #include <assert.h>
 
+#include <hurst/util/collection/array.h>
 #include <hurst/util/io/print.h>
 #include <hurst/util/opt/all.h>
-#include <hurst/util/array.h>
 #include <hurst/util/time/Timestamp.h>
 #include <hurst/util/str.h>
 

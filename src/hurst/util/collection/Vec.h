@@ -7,7 +7,8 @@
 
 #include <hurst/util/fmt/output/ArrayOFmt.h>
 #include <hurst/util/io/print.h>
-#include <hurst/util/array.h>
+
+#include "array.h"
 
 enum {
     VEC_DEFAULT_INIT_CAP = 8,

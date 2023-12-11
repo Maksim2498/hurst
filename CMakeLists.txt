@@ -27,12 +27,12 @@ add_executable(
     src/hurst/app/ParsedAppConfig.h
 
     src/hurst/util/collection/all.h
+    src/hurst/util/collection/array.h
+    src/hurst/util/collection/array.c
     src/hurst/util/collection/Vec.h
     src/hurst/util/collection/Vec.c
 
     src/hurst/util/all.h
-    src/hurst/util/array.h
-    src/hurst/util/array.c
     src/hurst/util/macros.h
     src/hurst/util/mem.h
     src/hurst/util/mem.c

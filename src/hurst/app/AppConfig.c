@@ -3,8 +3,8 @@
 #include <assert.h>
 #include <ctype.h>
 
+#include <hurst/util/collection/array.h>
 #include <hurst/util/io/print.h>
-#include <hurst/util/array.h>
 #include <hurst/config.h>
 
 const struct AppConfig APP_CONFIG_DEFAULT = {

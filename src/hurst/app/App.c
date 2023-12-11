@@ -3,10 +3,10 @@
 #include <assert.h>
 #include <math.h>
 
+#include <hurst/util/collection/array.h>
 #include <hurst/util/collection/Vec.h>
 #include <hurst/util/io/print.h>
 #include <hurst/util/opt/Opt.h>
-#include <hurst/util/array.h>
 #include <hurst/util/path.h>
 #include <hurst/util/str.h>
 #include <hurst/config.h>

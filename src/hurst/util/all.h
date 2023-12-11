@@ -7,7 +7,6 @@
 #include "opt/all.h"
 #include "time/all.h"
 
-#include "array.h"
 #include "macros.h"
 #include "mem.h"
 #include "path.h"
