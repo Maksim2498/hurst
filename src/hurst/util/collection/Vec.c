@@ -79,6 +79,11 @@ const void* Vec_getCFirst(const Vec* vec) {
     return vec->len ? vec->items : NULL;
 }
 
+void Vec_setFirst(Vec* vec, const void* item) {
+    assert(!Vec_isEmpty(vec) && item);
+    memcpy(vec->items, item, vec->itemSize);
+}
+
 void* Vec_getLast(Vec* vec) {
     return (void*) Vec_getCLast(vec);
 }
@@ -90,6 +95,16 @@ const void* Vec_getCLast(const Vec* vec) {
                     : NULL;
 }
 
+void Vec_setLast(Vec* vec, const void* item) {
+    assert(!Vec_isEmpty(vec) && item);
+
+    memcpy(
+        vec->items + (vec->len - 1) * vec->itemSize,
+        item,
+        vec->itemSize
+    );
+}
+
 void* Vec_getAt(Vec* vec, size_t at) {
     return (void*) Vec_getCAt(vec, at);
 }
@@ -99,8 +114,18 @@ const void* Vec_getCAt(const Vec* vec, size_t at) {
     return vec->items + at * vec->itemSize;
 }
 
-void Vec_append(Vec* vec, const void* element) {
-    Vec_appendN(vec, element, 1);
+void Vec_setAt(Vec* vec, const void* item, size_t at) {
+    assert(at < Vec_getLen(vec) && item);
+
+    memcpy(
+        vec->items + at * vec->itemSize,
+        item,
+        vec->itemSize
+    );
+}
+
+void Vec_append(Vec* vec, const void* item) {
+    Vec_appendN(vec, item, 1);
 }
 
 void Vec_appendN(Vec* vec, const void* items, size_t n) {
@@ -120,8 +145,8 @@ void Vec_appendN(Vec* vec, const void* items, size_t n) {
     vec->len = newLen;
 }
 
-void Vec_prepend(Vec* vec, const void* element) {
-    Vec_appendN(vec, element, 1);
+void Vec_prepend(Vec* vec, const void* item) {
+    Vec_appendN(vec, item, 1);
 }
 
 void Vec_prependN(Vec* vec, const void* items, size_t n) {
@@ -147,8 +172,8 @@ void Vec_prependN(Vec* vec, const void* items, size_t n) {
     vec->len = newLen;
 }
 
-void Vec_insert(Vec* vec, const void* element, size_t at) {
-    Vec_insertN(vec, element, at, 1);
+void Vec_insert(Vec* vec, const void* item, size_t at) {
+    Vec_insertN(vec, item, at, 1);
 }
 
 void Vec_insertN(Vec* vec, const void* items, size_t at, size_t n) {

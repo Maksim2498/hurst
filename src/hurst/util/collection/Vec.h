@@ -35,16 +35,19 @@ const void* Vec_getCItems(const Vec* vec);
 
 void* Vec_getFirst(Vec* vec);
 const void* Vec_getCFirst(const Vec* vec);
+void Vec_setFirst(Vec* vec, const void* item);
 void* Vec_getLast(Vec* vec);
 const void* Vec_getCLast(const Vec* vec);
+void Vec_setLast(Vec* vec, const void* item);
 void* Vec_getAt(Vec* vec, size_t at);
 const void* Vec_getCAt(const Vec* vec, size_t at);
+void Vec_setAt(Vec* vec, const void* item, size_t at);
 
-void Vec_append(Vec* vec, const void* element);
+void Vec_append(Vec* vec, const void* item);
 void Vec_appendN(Vec* vec, const void* items, size_t n);
-void Vec_prepend(Vec* vec, const void* element);
+void Vec_prepend(Vec* vec, const void* item);
 void Vec_prependN(Vec* vec, const void* items, size_t n);
-void Vec_insert(Vec* vec, const void* element, size_t at);
+void Vec_insert(Vec* vec, const void* item, size_t at);
 void Vec_insertN(Vec* vec, const void* items, size_t at, size_t n);
 bool Vec_pop(Vec* vec);
 size_t Vec_popN(Vec* vec, size_t n);
