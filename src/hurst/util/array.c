@@ -21,7 +21,7 @@ void applyToDArray(double* array, size_t len, ApplyD apply) {
         *it = apply(*it);
 }
 
-struct Line evalDArrayLinReg(double* x, double* y, size_t len) {
+struct Line evalDArrayLinReg(const double* x, const double* y, size_t len) {
     const double xSum      = evalDArraySum(x, len);
     const double ySum      = evalDArraySum(y, len);
     const double xyProdSum = evalDArraysProdSum(x, y, len);

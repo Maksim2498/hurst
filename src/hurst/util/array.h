@@ -16,7 +16,7 @@ struct Line {
     double offset;
 };
 
-struct Line evalDArrayLinReg(double* x, double* y, size_t len);
+struct Line evalDArrayLinReg(const double* x, const double* y, size_t len);
 
 double evalDArraysProdSum(const double* lhs, const double* rhs, size_t len);
 double evalDArrayStd(const double* array, size_t len);
