@@ -7,6 +7,8 @@
 #include <hurst/util/macros.h>
 #include <hurst/util/mem.h>
 
+#include "array.h"
+
 static void Vec_grow_(Vec* vec);
 
 void Vec_init(Vec* vec, size_t itemSize) {
