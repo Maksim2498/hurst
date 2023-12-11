@@ -20,6 +20,7 @@ typedef struct {
 } Vec;
 
 void Vec_init(Vec* vec, size_t itemSize);
+void Vec_initFilled(Vec* vec, size_t itemSize, const void* item, size_t n);
 void Vec_initWithLen(Vec* vec, size_t itemSize, size_t len);
 void Vec_initWithCap(Vec* vec, size_t itemSize, size_t cap);
 void Vec_initWithLenAndCap(Vec* vec, size_t itemSize, size_t len, size_t cap);

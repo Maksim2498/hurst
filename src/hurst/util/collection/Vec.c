@@ -12,6 +12,11 @@ void Vec_init(Vec* vec, size_t itemSize) {
     Vec_initWithCap(vec, itemSize, VEC_DEFAULT_INIT_CAP);
 }
 
+void Vec_initFilled(Vec* vec, size_t itemSize, const void* item, size_t n) {
+    Vec_initWithLen(vec, itemSize, n);
+    Vec_fill(vec, item);
+}
+
 void Vec_initWithLen(Vec* vec, size_t itemSize, size_t len) {
     Vec_initWithLenAndCap(vec, itemSize, len, MAX(len, VEC_DEFAULT_INIT_CAP));
 }
