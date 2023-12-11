@@ -138,6 +138,20 @@ void Vec_setAt(Vec* vec, const void* item, size_t at) {
     );
 }
 
+void Vec_fill(Vec* vec, const void* item) {
+    assert(Vec_isValid(vec) && item);
+
+    for (size_t i = 0; i < vec->len; ++i)
+        Vec_setAt(vec, item, i);
+}
+
+void Vec_fillRange(Vec* vec, const void* item, size_t at, size_t n) {
+    assert(Vec_isValid(vec) && item && at + n <= vec->len);
+
+    for (size_t i = at; i < at + n; ++i)
+        Vec_setAt(vec, item, i);
+}
+
 void Vec_append(Vec* vec, const void* item) {
     Vec_appendN(vec, item, 1);
 }

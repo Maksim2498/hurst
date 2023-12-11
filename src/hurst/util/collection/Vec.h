@@ -46,6 +46,8 @@ void* Vec_getAt(Vec* vec, size_t at);
 const void* Vec_getCAt(const Vec* vec, size_t at);
 void Vec_setAt(Vec* vec, const void* item, size_t at);
 
+void Vec_fill(Vec* vec, const void* item);
+void Vec_fillRange(Vec* vec, const void* item, size_t at, size_t n);
 void Vec_append(Vec* vec, const void* item);
 void Vec_appendN(Vec* vec, const void* items, size_t n);
 void Vec_prepend(Vec* vec, const void* item);
