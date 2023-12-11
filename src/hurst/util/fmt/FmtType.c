@@ -77,7 +77,7 @@ struct ParsedFmtType FmtType_ParseN(const char* str, size_t strLen) {
                         valid = true;
                         goto quit;
 
-                    case 'D':
+                    case 'p':
                         type  = FMT_TYPE_PTRDIFF;
                         len   = 1;
                         valid = true;

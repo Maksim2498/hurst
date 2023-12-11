@@ -33,7 +33,7 @@ enum FmtType {
     FMT_TYPE_ULINT,        // uli?
     FMT_TYPE_LLINT,        // lli?
     FMT_TYPE_ULLINT,       // ulli?
-    FMT_TYPE_PTRDIFF,      // D
+    FMT_TYPE_PTRDIFF,      // p
     FMT_TYPE_SIZE,         // z
     FMT_TYPE_MAX,          // m
     FMT_TYPE_UMAX,         // um
