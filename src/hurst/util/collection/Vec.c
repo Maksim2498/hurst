@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <string.h>
 
+#include <hurst/util/io/print.h>
 #include <hurst/util/macros.h>
 #include <hurst/util/mem.h>
 

@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 #include <hurst/util/fmt/output/ArrayOFmt.h>
-#include <hurst/util/io/print.h>
+#include <hurst/util/io/cb.h>
 
 #include "array.h"
 
